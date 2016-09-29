@@ -4,7 +4,7 @@ This is a websocket example written in python.
 
 ## Installation
 
-1. `git clone https://github.com/hiroakis/tornado-websocket-example.git`
+1. `git clone https://github.com/gamesbook/tornado-websocket-example.git`
 
 2. `cd tornado-websocket-example`
 
