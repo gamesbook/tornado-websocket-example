@@ -3,7 +3,7 @@ FROM ubuntu
 MAINTAINER Hiroaki Sano <hiroaki.sano.9stories@gmail.com>
 
 RUN apt-get update -y && apt-get install git python python-pip -y
-RUN cd /tmp \
+RUN cd /tmp && cd /tmp \
     && git clone https://github.com/gamesbook/tornado-websocket-example.git \
     && cd tornado-websocket-example \
     && pip install -r requirements.txt
