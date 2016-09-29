@@ -1,12 +1,7 @@
 from tornado import websocket, web, ioloop
 import json
 
-cl = []
 clients = []
-
-def send_to_all_clients(msg):
-    for client in clients:
-        client.write_message(message)
 
 class IndexHandler(web.RequestHandler):
     def get(self):
@@ -18,10 +13,7 @@ class SocketHandler(websocket.WebSocketHandler):
         return True
 
     def open(self):
-        send_to_all_clients("new client")
         clients.append(self)
-        if self not in cl:
-            cl.append(self)
 
     def on_message(self, message):
         for client in clients:
@@ -29,9 +21,6 @@ class SocketHandler(websocket.WebSocketHandler):
 
     def on_close(self):
         clients.remove(self)
-        send_to_all_clients("removing client")
-        if self in cl:
-            cl.remove(self)
 
 app = web.Application([
     (r'/', IndexHandler),
